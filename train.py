@@ -24,8 +24,8 @@ start = timeit.default_timer()
 IMG_MEAN = np.array((104.00698793,116.66876762,122.67891434), dtype=np.float32)
 
 BATCH_SIZE = 10
-DATA_DIRECTORY = '../../data/VOCdevkit/voc12'
-DATA_LIST_PATH = './dataset/list/train_aug.txt'
+DATA_DIRECTORY = '/public/datasets/VOC/VOCdevkit/VOC2012/'
+DATA_LIST_PATH = './dataset/list/train.txt'
 IGNORE_LABEL = 255
 INPUT_SIZE = '321,321'
 LEARNING_RATE = 2.5e-4
@@ -180,7 +180,7 @@ def main():
         # print i_parts
         if not args.num_classes == 21 or not i_parts[1]=='layer5':
             new_params['.'.join(i_parts[1:])] = saved_state_dict[i]
-    model.load_state_dict(new_params)
+#    model.load_state_dict(new_params)
     #model.float()
     #model.eval() # use_global_stats = True
     model.train()
